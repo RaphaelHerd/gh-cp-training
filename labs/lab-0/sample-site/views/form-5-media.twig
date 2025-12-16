@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Form 5 - Media Settings</h2>
+
+    <form action="index.php?action=results" method="post">
+
+        <h4>Audio settings:</h4>
+        <div>
+            <label for="volume">Volume</label>
+            <input type="range" id="volume" name="volume" min="0" max="11">
+        </div>
+
+        <div>
+            <label for="cowbell">Cowbell</label>
+            <input type="range" id="cowbell" name="cowbell" min="0" max="100" value="90" step="10">
+        </div>
+
+        <h4>Video settings:</h4>
+        <div>
+            <label for="backgroundColor">Select background color:</label>
+            <input type="color" id="backgroundColor" name="backgroundcolor" value="#ff0000">
+        </div>
+
+        <div>
+            <label for="foregroundColor">Select foreground color:</label>
+            <input type="color" id="foregroundColor" name="foregroundcolor" value="#ff0000">
+        </div>
+
+        <br><br>
+
+        <input type="submit" id="btnSaveSettings" value="Save settings">
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Sales - Statistics</h2>
+
+
+    <hr>
+    <table id="sales-details">
+        <tr>
+            <th class="sales header-year-month">2022 Month</th>
+            <th class="sales header-amount">Number of Sales</th>
+        </tr>
+        <tr>
+            <td class="sales">January</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">February</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">March</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">April</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">May</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">June</td>
+            <td class="sales">32164</td>
+        </tr>
+        <tr>
+            <td class="sales">July</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">August</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">September</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">October</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">November</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+        <tr>
+            <td class="sales">December</td>
+            <td class="sales">{{ random(20000, 40000) }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

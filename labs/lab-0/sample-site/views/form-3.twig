@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Form 3 - Credit Card</h2>
+
+    <form action="index.php?action=responsecc" id="ccentry"  method="post">
+        <label for="cname">Name on Card</label>
+        <br>
+        <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+        <br>
+        <br>
+        <label for="ccnum">Credit card number</label>
+        <br>
+        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+        <br>
+        <br>
+        <label for="expdate">Expiry Date</label>
+        <br>
+        <input type="text" id="expdate" name="expdate" placeholder="MM / YY">
+        <br>
+        <br>
+        <label for="cvv">CVV</label>
+        <br>
+        <input type="text" id="cvv" name="cvv" placeholder="352">
+
+        <br>
+        <br>
+        <input type="submit" id="btnPaynow" name="paynow" value="Pay Now">
+
+        <br>
+        <br>
+        <br>
+        <br>
+        VISA: 4242424242424242
+        <br>
+        Master: 5555555555554444
+        <br>
+        <br>
+        Insufficient funds decline: 4000000000009995
+        <br>
+        Lost card decline: 4000000000009987
+        <br>
+        Stolen card decline: 4000000000009979
+
+    </form>
+</div>
+{% endblock %}

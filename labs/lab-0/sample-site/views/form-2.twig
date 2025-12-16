@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Form 2 - Accommodation Booking form</h2>
+
+    <form action="index.php?action=results" method="post">
+
+        <label for="meeting-time">Choose a time for your appointment:</label>
+        <input type="datetime-local" id="meeting-time" name="meeting-time" value="2018-06-12T19:30"
+               min="2018-06-07T00:00" max="2018-06-14T00:00">
+        <br>
+        <br>
+
+        <label for="start">Check-in date</label>
+        <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+
+        <br><br>
+        <label for="start">Check-out date</label>
+        <input type="date" id="end" name="trip-end" value="2018-07-22" min="2018-01-01" max="2018-12-31">
+
+        <br><br>
+
+        <!-- <label for="email">Enter your example.com email:</label>
+        <input type="email" id="email" pattern=".+@example\.com" size="30" required> -->
+
+        <input type="submit" id="btnSendBookingInfo" value="Send your data">
+    </form>
+
+</div>
+{% endblock %}

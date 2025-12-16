@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Human Resources - Find employee</h2>
+
+    <form action="index.php?action=employee&find=1" id="employeeform" method="post">
+
+        <div class="login-input">
+            <label for="employee-name">Name of Employee</label>
+            <input type="text" id="employee-name" name="employee-name" placeholder="Enter name"/>
+        </div>
+
+        <div class="login-input">
+            <label for="btnSearch">&nbsp;</label>
+            <input type="submit" id="btnSearch" name="search" value="Search">
+        </div>
+    </form>
+
+    {%if show_search_results == "1" %}
+    <hr>
+    <table id="employee-details">
+        <tr>
+            <th class="employee">ID</th>
+            <th class="employee">Name</th>
+            <th class="employee">Department</th>
+            <th class="employee">Position</th>
+            <th class="employee">Joined</th>
+        </tr>
+        <tr>
+            <td class="employee">1-1002</td>
+            <td class="employee name">Joe Doe</td>
+            <td class="employee department">Marketing</td>
+            <td class="employee position">Complaints Manager</td>
+            <td class="employee join-date">2019-Feb-01</td>
+        </tr>
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

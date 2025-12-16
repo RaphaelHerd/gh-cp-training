@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Form 1 - Information about yourself</h2>
+    <form action="index.php?action=thankYou" method="post">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname">
+
+        <br>
+        <br>
+        <h4>Your address:</h4>
+        <label for="street">Street</label><br>
+        <input type="text" id="street" name="street"><br>
+
+        <label for="city">City</label><br>
+        <input type="text" id="city" name="city"><br>
+
+        <label for="zip">Zip code</label><br>
+        <input type="text" id="zip" name="zip"><br>
+
+        <label for="state">State</label><br>
+        <input type="text" id="state" name="state"><br>
+
+        <label for="country">Country</label><br>
+        <input type="text" id="country" name="country"><br>
+
+        <br>
+        <br>
+        <h4>Telephone/Email</h4>
+
+        <label for="mobile">Mobile</label><br>
+        <input type="text" id="mobile" name="mobile"><br>
+
+        <label for="home">Home</label><br>
+        <input type="text" id="home" name="home"><br>
+
+        <label for="email">Email</label><br>
+        <input type="text" id="email" name="email"><br>
+
+        <br>
+        <br>
+        <input type="submit" id="submit-info" name="send" value="Submit Your Information">
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+allure-behave
+behave
+behave-webdriver
+pyyaml
+selenium>=4.6.0
+selenium-page-factory
+unittest2
+assertpy
+urllib3>=2.2.3
+grpcio==1.60.1

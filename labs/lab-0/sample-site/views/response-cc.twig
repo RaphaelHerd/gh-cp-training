@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Response to CC input</h2>
+    {% if cc_number_valid == false %}
+        {% set alert_category = 'warning' %}
+        {% set alert_bold_message = 'Attention!' %}
+        {% set alert_message = 'The input for card number cannot be empty and needs to be numeric!' %}
+    {% else %}
+        {% if cardnumber == 4242424242424242 %}
+            {% set alert_category = 'success' %}
+            {% set alert_bold_message = 'Success.' %}
+            {% set alert_message = 'Cool! You are using VISA.' %}
+        {% elseif cardnumber == 5555555555554444 %}
+            {% set alert_category = 'success' %}
+            {% set alert_bold_message = 'Success.' %}
+            {% set alert_message = 'Cool! You are using MASTERCARD.' %}
+        {% elseif cardnumber == 4000000000009995 %}
+            {% set alert_category = 'warning' %}
+            {% set alert_bold_message = 'Declined.' %}
+            {% set alert_message = 'My dear.. You have insufficient funds.' %}
+        {% elseif cardnumber == 4000000000009987 %}
+            {% set alert_category = '' %}
+            {% set alert_bold_message = 'Declined.' %}
+            {% set alert_message = 'Because... This card has been reported as lost.' %}
+        {% elseif cardnumber == 4000000000009979 %}
+            {% set alert_category = '' %}
+            {% set alert_bold_message = 'Declined.' %}
+            {% set alert_message = 'Because... This card has been reported as stolen.' %}
+        {% elseif luhncheck == false %}
+            {% set alert_category = 'warning' %}
+            {% set alert_bold_message = 'Attention!' %}
+            {% set alert_message = 'The card number is invalid.' %}
+        {% else %}
+            {% set alert_bold_message = 'Attention!' %}
+            {% set alert_message = 'Something else is not right...' %}
+        {% endif %}
+    {% endif %}
+
+    {% include 'inc/alert-message.html' %}
+
+
+    {% if results_print_r is not null and results_print_r is not empty %}
+        <br>
+        <br>
+        <pre>
+            {{ results_print_r }}
+        </pre>
+    {% endif %}
+
+    <br>
+    <br>
+    <br>
+    See also <a href="https://stripe.com/docs/testing" target="_blank">Stripe test cards</a>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Form 6 - Convert Celsius to Fahrenheit</h2>
+
+    <form action="index.php?action=form6" id="convert-celsius" method="post">
+
+        Celsius &nbsp;<input type="text" name="celsius" value="{{ celsius }}">
+        <br>
+        <br>
+
+        <input type="submit" id="btnCelsius" name="Convert" value="Convert">
+
+        <br>
+        <br>
+
+        Fahrenheit &nbsp;<input type="text" name="fahrenheit" value="{{ fahrenheit }}">
+        <br>
+
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+
+    {%if userLevel == "admin" %}
+
+    {% set alert_category = 'success' %}
+    {% set alert_bold_message = 'Login successful' %}
+    {% set alert_message = '' %}
+    {% include 'inc/alert-message.html' %}
+
+    <h2>Admin Dashboard</h2>
+
+    <a id="hr-resources-link" class="admin-resources" href="index.php?action=employee">Human Resources</a>
+    |
+    <a id="sales-statistics-link" class="admin-resources" href="index.php?action=sales">Sales Statistics</a>
+    {% endif %}
+
+    {%if userLevel == "employee" %}
+
+    {% set alert_category = 'success' %}
+    {% set alert_bold_message = 'Login successful' %}
+    {% set alert_message = '' %}
+    {% include 'inc/alert-message.html' %}
+
+    <h2>User Account</h2>
+    <form id="userDetails" name="User Details">
+        <table>
+            <tbody>
+            <tr>
+                <td><label>Title &nbsp;<font color="red">*</font></label></td>
+                <td><span><select data-val="true" data-val-number="The field TitleId must be a number." id="TitleId"
+                                  name="TitleId"><option value="">Select</option><option value="1">Mr.</option><option
+                        value="2">Ms.</option> </select></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="detail_box"><label>Initial</label></div>
+                </td>
+                <td><span><input id="Initial" name="Initial" style="width:50px;" type="text" value=""></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="detail_box"><label>First Name <font color="red">*</font></label></div>
+                </td>
+                <td><span><input id="FirstName" name="FirstName" style="width:120px;" type="text" value=""></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="detail_box"><label>Middle Name</label></div>
+                </td>
+                <td><span><input id="MiddleName" name="MiddleName" style="width:120px;" type="text" value=""></span>
+                </td>
+            </tr>
+            <tr>
+                <td><span>Gender </span></td>
+                <td><input checked="checked" name="Male" type="radio" value="male">Male &nbsp;<input name="Female"
+                                                                                                     type="radio"
+                                                                                                     value="female">Female
+                </td>
+            </tr>
+            <tr>
+                <td><span>Languages Known </span></td>
+                <td><input checked="checked" name="english" type="checkbox" value="male">English &nbsp;<input
+                        name="Spanish" type="checkbox" value="Spanish">Spanish
+                </td>
+            </tr>
+            <tr>
+                <td><input name="Save" id="btnSave" type="button" value="Save"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    {% endif %}
+
+    {%if userLevel == "none" %}
+        {% set alert_category = '' %}
+        {% set alert_bold_message = 'Login not successful.' %}
+        {% set alert_message = 'Please check your credentials and try again.' %}
+        {% include 'inc/alert-message.html' %}
+            <br>
+            <br>
+            <a href="index.php?action=form4">back to Login</a>
+    {% endif %}
+</div>
+{% endblock %}

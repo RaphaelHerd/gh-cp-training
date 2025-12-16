@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="center">
+    <h2>Overlay effect 1</h2>
+
+    <div id="overlay" onclick="off()">
+        <div id="text">Overlay Text
+            <br>
+            <a href="index.php?action=index">Go to Welcome Page</a></div>
+    </div>
+
+    <div style="padding:20px">
+        <button onclick="on()">Turn on overlay effect</button>
+    </div>
+
+    <script>
+        function on() {
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function off() {
+            document.getElementById("overlay").style.display = "none";
+        }
+    </script>
+</div>
+{% endblock %}

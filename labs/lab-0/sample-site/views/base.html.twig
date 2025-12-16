@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Site</title>
+    <style type='text/css'>
+        .header {
+            position: relative;
+            float: left;
+            width: 100%;
+            background-color: #356aa0;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            float: left;
+            width: 100%;
+            background-color: #cccccc
+        }
+
+        .left {
+            position: relative;
+            float: left;
+            width: 20%;
+            background-color: #a2b5cd;
+            height: 85vh;
+        }
+
+        .left a {
+            font-size: smaller;
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        .center {
+            position: relative;
+            float: left;
+            left: 1%;
+            right: 1%;
+            width: 58%;
+            height: 85vh;
+            background-color: #a2b5cd;
+            overflow: auto;
+        }
+
+        .right {
+            position: relative;
+            float: right;
+            width: 20%;
+            height: 85vh;
+            background-color: #a2b5cd
+        }
+
+        .footer {
+            position: relative;
+            float: left;
+            width: 100%;
+            background-color: #356aa0;
+            height: 15vh;
+        }
+
+        body {
+            /* padding: 0px; */
+            background-color: #e7e7de;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        div.login-input {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: inline-block;
+            width: 110px;
+        }
+
+        input {
+            padding: 5px 10px;
+        }
+
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+            opacity: 1;
+            transition: opacity 0.6s;
+            margin-bottom: 15px;
+        }
+
+        .alert.success {
+            background-color: #04AA6D;
+        }
+
+        .alert.info {
+            background-color: #2196F3;
+        }
+
+        .alert.warning {
+            background-color: #ff9800;
+        }
+
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        /* Employees */
+        #employee-details {
+            border: 1px solid;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+
+        th.employee, td.employee {
+            border: 1px solid;
+            padding: 8px;
+        }
+
+        /* for nested menu 1 */
+        .menu {
+            display: block;
+            z-index: 999999;
+        }
+
+        .menu li {
+            display: inline-block;
+            position: relative;
+        }
+
+        .menu li.dropdown:hover > .submenu {
+            display: block;
+        }
+
+        .menu li a {
+            display: block;
+            padding: 12px 8px;
+            background: #ccc;
+        }
+
+        .menu li.dropdown > a::after {
+            content: "\e259";
+            font-style: normal;
+            font-weight: 400;
+            margin-left: 8px;
+            font-size: 10px;
+        }
+
+        .menu li a::before {
+            font-style: normal;
+            font-weight: 400;
+            margin-right: 8px;
+        }
+
+        .menu li a:hover {
+            background: grey;
+        }
+
+        .menu .submenu {
+            display: none;
+        }
+
+        .submenu {
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+            left: 0px;
+            list-style-type: none;
+            display: block;
+            width: 200px;
+            z-index: 9;
+        }
+
+        .submenu li {
+            display: block;
+        }
+
+        .submenu li a {
+            display: block;
+            background: #999;
+            color: #fff;
+            padding: 8px 6px;
+            margin-bottom: 1px;
+        }
+
+        .menu .submenu > li.dropdown:hover > .submenu {
+            display: block;
+        }
+
+        .menu .submenu .submenu {
+            position: absolute;
+            left: 200px;
+            top: 0px;
+        }
+
+        .submenu li.dropdown > a:after {
+            content: "\e258";
+            font-style: normal;
+            font-weight: 400;
+            margin-left: 8px;
+            font-size: 10px;
+        }
+
+        /* Nested menu 2 */
+        /* The navigation menu */
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        /* Navigation links */
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* The subnavigation menu */
+        .subnav {
+            float: left;
+            overflow: hidden;
+        }
+
+        /* Subnav button */
+        .subnav .subnavbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        /* Add a red background color to navigation links on hover */
+        .navbar a:hover, .subnav:hover .subnavbtn {
+            background-color: red;
+        }
+
+        /* Style the subnav content - positioned absolute */
+        .subnav-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: red;
+            width: 100%;
+            z-index: 1;
+        }
+
+        /* Style the subnav links */
+        .subnav-content a {
+            float: left;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Add a grey background color on hover */
+        .subnav-content a:hover {
+            background-color: #eee;
+            color: black;
+        }
+
+        /* When you move the mouse over the subnav container, open the subnav content */
+        .subnav:hover .subnav-content {
+            display: block;
+        }
+
+        /* Overlay 1 with text effect */
+        #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        #text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 50px;
+            color: white;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+
+
+        /* Flip Card effect */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="header" class="header">
+    <h1>Test Site</h1>
+</div>
+<div class="container">
+    <!-- Header section end -->
+    <!-- Left column section -->
+    <div class="left">
+        <a href="index.php">Welcome</a>
+        <a href="index.php?action=form1">Form 1 - Information about yourself</a>
+        <a href="index.php?action=form2">Form 2 - Book Accommodation</a>
+        <a href="index.php?action=form3">Form 3 - Credit Card</a>
+        <a href="index.php?action=form4">Form 4 - Login Form</a>
+        <a href="index.php?action=form5">Form 5 - Media Settings</a>
+        <a href="index.php?action=form6">Form 6 - Celsius/Fahrenheit</a>
+        <a href="index.php?action=nestedmenu1">Nested menu 1</a>
+        <a href="index.php?action=nestedmenu2">Nested menu 2</a>
+        <a href="index.php?action=overlay1">Overlay 1</a>
+        <a href="index.php?action=cardflip1">Card flip 1</a>
+        <a href="index.php?action=orangePage">The Orange Page</a>
+        <a href="index.php?action=greenPage">The Green Page</a>
+        <a href="index.php?action=brownPage">The Brown Page</a>
+        <a href="index.php?action=childWindow" target="_blank">Child Window</a>
+    </div>
+    <!-- Left column section end -->
+
+    {% block body %}{% endblock %}
+
+    <!-- Right column section -->
+    <div class="right">
+        right
+    </div>
+    <!-- Right column section end -->
+
+    <!-- Footer section -->
+</div>
+<div class="footer">
+    Footer Text
+</div>
+</body>
+</html>
